@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+      <style>
+          body{
+              background-image:url("y1.jpg");
+              background-attachment: fixed;
+              background-repeat: no-repeat;
+              background-size: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              
+          }
+          input[type=text]:valid{
+            color: #59be50;
+          }
+          input[type=text]:invalid {
+            color: red;
+          }
+         input{
+             width: 260px;
+             height: 30px;
+             margin-bottom:20px;
+
+         } 
+         button{
+              background-color: cornflowerblue;
+              border: 0px;
+             width: 265px;
+             height: 35px;
+             color: white;
+         }
+         .container{
+             background-color: white;
+             margin: 40px;
+             padding: 40px;
+         }
+         h2{
+            margin-top: 10px; 
+            margin-left: 56px;
+         }
+          textarea{
+              margin-bottom: 20px;
+          }
+        
+        .sub:hover {background-color: #59be50}
+
+        .sub:active {
+             background-color: #59be50;
+             box-shadow: 0px 1px 1px 1px #666;
+            }
+
+      </style>       
+    <div class="container">
+                    <form action="" onsubmit="return ">
+                        <h2>Pesonal Details</h2>
+            <input type="text" id="name" name="name" placeholder="Name" required="required" ><br>
+
+            <input type="tel" id="mob" pattern="[0-9]{10}" maxlength="10" placeholder="Contact No" required="required"><br>
+
+            <textarea name="object" id="objective" cols="35" rows="7" placeholder="Objective" maxlength="400" required="required"></textarea> <br> 
+
+            <textarea name="Addr" id="Address" cols="35" rows="7" placeholder="Address" required="required"></textarea> <br> 
+
+            <input type="email" id="mail" placeholder="Email" required="required"><br>
+
+            <textarea name="Hobb" id="Hobbies" cols="35" rows="7" placeholder="Hobbies" required="required"></textarea><br>
+
+            <button type="submit" class="sub" onclick="personal_D_validation()">Next</button>
+             </form>
+</div>
+
+         <script>
+                   let Name = document.getElementById("name");
+                   let Mob = document.getElementById("mob");
+                   let objective = document.getElementById("objective");
+                   let Address = document.getElementById("Address");
+                   let Email = document.getElementById("mail");
+                   let Hobbies = document.getElementById("Hobbies");
+                   let flag=1;
+
+                   function personal_D_validation(){
+                   
+
+                          //validation for name
+                        if(Name.value==="" || Name.value.length<10)  
+                        {
+                            document.getElementById("NamePara").innerHTML="Name is too short or Empty Field";
+                            flag=0;
+                        }else{
+                            document.getElementById("NamePara").innerHTML="";
+                            flag=1;
+                        }  
+                           
+                        //validation for Mob no
+                        if(Mob.value.toString().length != 10){
+                          document.getElementById("MobilePara").innerHTML="Enter valid Mob number";
+                            flag=0;
+                        }else{
+                             document.getElementById("MobilePara").innerHTML="";
+                             flag=1;
+                        }
+                       
+                            //validation for objective
+                        if(objective.value.length<20){
+                            document.getElementById("ObjPara").innerHTML="Too less content";
+                            flag=0;
+                        }else{
+                            document.getElementById("ObjPara").innerHTML="";
+                            flag=1;
+                        }
+
+                          //validation for Address
+                        if(Address.value.length<20){
+                            document.getElementById("AdrPara").innerHTML="Too less content";
+                            flag=0;
+                        }else{
+                            document.getElementById("ObjPara").innerHTML="";
+                            flag=1;
+                        }
+
+                           // validation for hobbies
+                        if(Hobbies.value.length<20){
+                            document.getElementById("HobPara").innerHTML="Too less content";
+                            flag=0;
+                        }else{
+                            document.getElementById("HobPara").innerHTML="";
+                            flag=1;
+                        }
+
+
+                        if(flag){
+                            return true;
+                        }else{
+                            return false;
+                        }
+
+                    }
+                    const input = document.querySelector('input[name="name"]');
+
+                    input.addEventListener('invalid', function (event) {
+                    if (event.target.validity.valueMissing) {
+                    event.target.setCustomValidity('Please tell us how we should address you.');
+                    }
+                    })
+
+                    input.addEventListener('change', function (event) {
+                    event.target.setCustomValidity('');
+                    })
+                    
+         </script>
+</body>
+</html>
