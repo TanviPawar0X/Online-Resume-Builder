@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+             background: url("office6.jpg");
+             background-repeat: no-repeat;
+             background-size: 100%;
+             
+             display: flex;
+             justify-content: center;   /* It will Make text Horizontally Center*/
+             align-items: center;  /* It will align vertically centeral*/
+             height: 100vh;
+            }
+
+        #img1{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            top: 6px;
+            position: absolute;
+          margin: 0px -15px;
+        }
+        #div1{
+            position: absolute;
+            background-color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        #div1{
+            box-shadow: -15px 15px 35px rgba(0, 0, 0, 0.527);
+        }
+
+        h2{
+            margin: 0px 0px 10px 0px;
+        }
+        input{
+            width: 200px;
+            margin: 10px 0px;
+            padding: 10px;
+        }
+
+        input[type="submit"]{
+              width: 222px;
+              border: 0px;
+              color: white;
+              background-color: rgb(83, 198, 243);
+        }
+        .sub:hover {background-color: #59be50}
+
+        .sub:active {
+             background-color: #59be50;
+             box-shadow: 0px 1px 1px 1px #666;
+            }
+    </style>
+</head>
+<body>
+      <div id="div1">
+        <img id="img1" src="user7.png">
+          <h2>Registration</h2>
+          <form action="" onsubmit=" return validateForm()">
+    <input type="text" id="uname" placeholder="Username"><br>
+       <!-- <p id="FirstPara" class="para"></p>  -->
+     
+    <input type="email" id="mail" placeholder="Email"><br>
+    <!-- <p id="SecondPara" class="para"></p>  -->
+   
+     <input type="submit" class="sub">
+    </form>
+      </div>
+
+      <script>
+          let username = document.getElementById("uname");
+          let Email = document.getElementById("mail");
+          let flag= 1; // it will decide whether to submit form or not
+
+          function validateForm(){
+             if(username.value == ""){
+                 document.getElementById("FirstPara").innerHTML="Empty UserName";
+                 flag=0;
+             }else if(username.value.length < 3){
+                 document.getElementById("FirstPara").innerHTML="UserName should contain min 4 chars";
+                 flag=0;
+             }else{
+                document.getElementById("FirstPara").innerHTML="";   // if pass is correct it will not show any message in p tag
+                flag=1;
+             }
+
+            if(Email.value==""){
+                document.getElementById("SecondPara").innerHTML="Email id required";
+                flag=0;
+            }else{
+                document.getElementById("SecondPara").innerHTML=""; //if pass is correct it will not show any message in p tag
+                flag=1;
+            }
+                 if(flag){
+                     return true;
+                 }else{
+                     return false;
+                 }
+          }
+      </script>
+</body>
+</html>
