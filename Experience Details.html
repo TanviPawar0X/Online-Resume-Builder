@@ -63,27 +63,28 @@
              background-color: #59be50;
              box-shadow: 0px 1px 1px 1px #666;
             }
-        p{
+        span{
             color: red;
         }
       </style>       
     <div class="container">
-                    <form action="" onsubmit=" ">
+                    <form action="" onsubmit=" return Expirence_Validation()">
                         <h2 align="center">Experience Details</h2> <!--Company Name Designation Start date End date Details 2 Button-->
-            <input type="text" id="cname" name="companyName" placeholder="Company Name" required="required" ><br>
-            <p id="Company_Name_msg"></p> 
-
-            <input type="text" id="designation" placeholder="Designation" required="required"><br>
-            <p id="Designation_msg"></p>
-
-            <input type="date" id="startDate" placeholder="Start Date" required="required"><br>
-            <p id="Start_Date_msg"></p>
-
-            <input type="date" id="endDate" placeholder="End Date" required="required"></input><br>
-            <p id="End_Date_msg"></p>
+                 <span id="Company_Name_msg"></span><br>
+           <input type="text" id="cname" name="companyName" placeholder="Company Name"  ><br>
+           
+             <span id="Designation_msg"></span><br>
+            <input type="text" id="designation" placeholder="Designation"><br>
+           
+              <span id="Start_Date_msg"></span><br>
+            <input type="date" id="startDate" placeholder="Start Date"><br>
+ 
+            <span id="End_Date_msg"></span><br>
+            <input type="date" id="endDate" placeholder="End Date"></input><br>
             
-            <textarea name="Details" id="details" cols="35" rows="7" placeholder="Details" required="required"></textarea><br>
-            <p id="Details_msg"></p>
+            <span id="Details_msg"></span><br>
+            <textarea name="Details" id="details" cols="35" rows="7" placeholder="Details"></textarea><br>
+    
 
             <div id="btn">
                 <div id="b1" align="right"><button id="back" onclick="">Back</button></div>
@@ -93,6 +94,38 @@
             </form>
 </div>
 <script>
+                 let Company = document.getElementById("cname");
+                 let Designation = document.getElementById("designation");
+                 let startDate = document.getElementById("startDate");
+                 let endDate = document.getElementById("endDate");
+                 let Details = document.getElementById("details");
+                function Expirence_Validation(){
+                     
+                      //compant name
+                     if((Company.value)=="" || (Company.value).length<4){
+                         document.getElementById("Company_Name_msg").innerHTML="Company name too short or empty";
+                         return false;
+                     }/*else{
+                        document.getElementById("Company_Name_msg").innerHTML="";
+                     }*/
+ 
+                      //Designation
+                      if((Designation.value)=="" || (Designation.value).length<4){
+                         document.getElementById("Designation_msg").innerHTML="Designation too short or empty";
+                         return false;
+                     }/*else{
+                        document.getElementById("Designation_msg").innerHTML="";
+                     }*/
+
+                     //Details
+                     if((Details.value)=="" || (Details.value).length<4){
+                         document.getElementById("Details_msg").innerHTML="Designation too short or empty";
+                         return false;
+                     }/*else{
+                        document.getElementById("Details_msg").innerHTML="";
+                     }*/
+                              //start and end year validation is remaining
+                }
 
                     
          </script>

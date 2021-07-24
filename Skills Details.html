@@ -51,16 +51,16 @@
              background-color: #59be50;
              box-shadow: 0px 1px 1px 1px #666;
             }
-        p{
+        span{
             color: red;
         }
       </style>       
     <div class="container">
-                    <form action="" onsubmit=" ">
+                    <form action="" onsubmit=" return Skill_validation()">
                         <h2 align="center">Skills Details</h2> 
-            
+            <span id="Skills_msg"></span><br>
             <textarea name="Skill" id="skill" cols="35" rows="7" placeholder="Skills" required="required"></textarea><br>
-            <p id="Skills_msg"></p>
+            
             <div id="btn">
                 <div id="b1" align="right"><button id="back" onclick="">Back</button></div>
                 <div id="b2" ><button type="submit" class="sub" onclick="">Save</button>
@@ -70,7 +70,15 @@
             </form>
 </div>
 <script>
-
+                 let Skill = document.getElementById("skill");
+                function  Skill_validation(){
+                     if((Skill.value)=="" || (Skill.value).length<15){
+                            document.getElementById("Skills_msg").innerHTML="Filed is empty or text is too small";
+                            return false;
+                     } /*else{
+                         document.getElementById("Skills_msg").innerHTML="";
+                     } */
+                }
                     
          </script>
 </body>

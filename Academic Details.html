@@ -9,7 +9,7 @@
 <body> 
       <style>
           body{
-              background-image:url("academic1.jpg");
+              /*background-image:url("academic1.jpg");*/
               background-attachment: fixed;
               background-repeat: no-repeat;
               background-size: 100%;
@@ -53,32 +53,64 @@
              background-color: #59be50;
              box-shadow: 0px 1px 1px 1px #666;
             }
-        p{
+        span{
             color: red;
         }
       </style>       
-    <div class="container">
-                    <form action="" onsubmit=" ">
+    <div class="container" id="div">
+                    <form action="" onsubmit=" return Academic_validation()">
                         <h2 align="center">Academic Details</h2>
-            <input type="text" id="courseDegree" name="course" placeholder="Course/Degree" required="required" ><br>
-            <p id="Course_Degree_msg"></p> 
+                        <span id="Course_Degree_msg"></span><br>
+            <input type="text" id="courseDegree" name="course" placeholder="Course/Degree"  ><br>
+           
+            <span id="School_University_msg"></span><br>
+            <input type="text" id="schoolUniversity" placeholder="School/University" ><br>
+           
+          
+            <span id="Year_msg"></span><br>
+            <input   type="month"  id="year" placeholder="Year" ></input><br>
 
-            <input type="text" id="schoolUniversity" placeholder="School/University" required="required"><br>
-            <p id="School_University_msg"></p>
-
-            <input type="text" id="gradeScore" placeholder="Grade/Score" required="required"><br>
-            <p id="Grade_Score_msg"></p>
-
-            <input id="year" placeholder="Year" required="required"></input><br>
-            <p id="Year_msg"></p>
+            <span id="Grade_Score_msg"></span><br>
+            <input type="text" id="gradeScore" placeholder="Grade/Score" ><br>
+           
+          
             
             <button id="back" onclick="">Back</button>
             <button  id="add" onclick="">Add</button>
-            <button type="submit" class="sub" onclick="">Next</button>
+            <button type="submit" class="sub" onclick="" >Next</button>
             </form>
 </div>
 <script>
+              function Academic_validation(){
+                  let Degree = document.getElementById("courseDegree");
+                  let School = document.getElementById("schoolUniversity");
+                  let grade = document.getElementById("gradeScore");
+                  let year = document.getElementById("year");
+                 
+                      //if it will return true 
+                   console.log(Degree);
+                  if((Degree.value)=="" || (Degree.value).length <3){
+                      document.getElementById("Course_Degree_msg").innerHTML="Field is Empty or too short";
+                         return false; 
+              
+                    }
 
+                  if((School.value) == "" || (Degree.value).length <3){
+                    document.getElementById("School_University_msg").innerHTML="Field is Empty or too short";
+                    return false; 
+                    }
+
+                    if(year.value==""){
+                        document.getElementById("Year_msg").innerHTML="Field is Empty";
+                          return false;
+                    }
+
+                  if((grade.value) == ""){
+                    document.getElementById("Grade_Score_msg").innerHTML="Field is Empty";
+                    return false; 
+                     }
+                    
+              }
                     
          </script>
 </body>

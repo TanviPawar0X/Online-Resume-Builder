@@ -9,8 +9,7 @@
 <body> 
       <style>
           body{
-              background-image:url("y1.jpg");
-              background-attachment: fixed;
+              background-image:url("personal details background.jpg");
               background-repeat: no-repeat;
               background-size: 100%;
               display: flex;
@@ -18,21 +17,21 @@
               align-items: center;
               
           }
-          input[type=text]:valid{
-            color: #59be50;
-          }
-          input[type=text]:invalid {
-            color: red;
-          }
          input{
              width: 260px;
              height: 30px;
              margin-bottom:20px;
-
          } 
+           input[type="submit"]{
+            background-color: cornflowerblue;
+            color: white;
+            border: 0px;
+             width: 265px;
+             height: 36px;
+           }
          button{
               background-color: cornflowerblue;
-              border: 0px;
+             border: 0px;
              width: 265px;
              height: 35px;
              color: white;
@@ -49,34 +48,35 @@
           textarea{
               margin-bottom: 20px;
           }
-        
-        .sub:hover {background-color: #59be50}
 
-        .sub:active {
-             background-color: #59be50;
-             box-shadow: 0px 1px 1px 1px #666;
-            }
-
-      </style>       
+          span{
+              color: red;
+          }
+      </style>
+                 
     <div class="container">
-                    <form action="" onsubmit="return ">
+                    <form action="" onsubmit="return personal_D_validation()">   <!--In action we can pu the url of the next page-->
                         <h2>Pesonal Details</h2>
-            <input type="text" id="name" name="name" placeholder="Name" required="required" ><br>
+               <span id="NamePara"></span><br>
+             <input type="text" id="name" placeholder="Name"><br>
 
-            <input type="tel" id="mob" pattern="[0-9]{10}" maxlength="10" placeholder="Contact No" required="required"><br>
-
-            <textarea name="object" id="objective" cols="35" rows="7" placeholder="Objective" maxlength="400" required="required"></textarea> <br> 
-
-            <textarea name="Addr" id="Address" cols="35" rows="7" placeholder="Address" required="required"></textarea> <br> 
-
-            <input type="email" id="mail" placeholder="Email" required="required"><br>
-
-            <textarea name="Hobb" id="Hobbies" cols="35" rows="7" placeholder="Hobbies" required="required"></textarea><br>
-
-            <button type="submit" class="sub" onclick="personal_D_validation()">Next</button>
+                <span id="MobilePara"></span><br>
+             <input type="tel" id="mob" pattern="[0-9]{10}" maxlength=10 placeholder="Contact No"><br>
+            
+             <span id="ObjPara"></span><br>
+            <textarea name="object" id="objective" cols="35" rows="7" placeholder="Objective"></textarea> <br> 
+            
+              <span id="AdrPara"></span><br>
+            <textarea name="Addr" id="Address" cols="35" rows="7" placeholder="Address"></textarea> <br> 
+           
+              <span id="EmailPara"></span><br>
+             <input type="email" id="mail" placeholder="Email"><br>
+             
+             <span id="HobPara"></span><br>
+             <textarea name="Hobb" id="Hobbies" cols="35" rows="7" placeholder="Hobbies"></textarea><br>
+            <input type="submit" value="Next" id="sub">
              </form>
-</div>
-
+    </div>
          <script>
                    let Name = document.getElementById("name");
                    let Mob = document.getElementById("mob");
@@ -84,77 +84,67 @@
                    let Address = document.getElementById("Address");
                    let Email = document.getElementById("mail");
                    let Hobbies = document.getElementById("Hobbies");
-                   let flag=1;
+                  // let flag=1;
 
                    function personal_D_validation(){
-                   
 
                           //validation for name
-                        if(Name.value==="" || Name.value.length<10)  
+                        if(Name.value=="" || Name.value.length<10)  
                         {
                             document.getElementById("NamePara").innerHTML="Name is too short or Empty Field";
-                            flag=0;
-                        }else{
+                            return false;
+                        } /*else{
                             document.getElementById("NamePara").innerHTML="";
                             flag=1;
-                        }  
+                        } */ 
                            
                         //validation for Mob no
-                        if(Mob.value.toString().length != 10){
+                        if((Mob.value).toString().length != 10){
                           document.getElementById("MobilePara").innerHTML="Enter valid Mob number";
-                            flag=0;
-                        }else{
+                            return false;
+                        } /*else{
                              document.getElementById("MobilePara").innerHTML="";
                              flag=1;
-                        }
+                        }*/
                        
                             //validation for objective
-                        if(objective.value.length<20){
+                        if((objective.value).length<20){
                             document.getElementById("ObjPara").innerHTML="Too less content";
-                            flag=0;
-                        }else{
+                            return false;
+                        }/*else{
                             document.getElementById("ObjPara").innerHTML="";
                             flag=1;
-                        }
+                        }*/
 
                           //validation for Address
-                        if(Address.value.length<20){
+                        if((Address.value).length<20){
                             document.getElementById("AdrPara").innerHTML="Too less content";
-                            flag=0;
-                        }else{
-                            document.getElementById("ObjPara").innerHTML="";
+                            return false;
+                        } /*else{
+                            document.getElementById("AdrPara").innerHTML="";
                             flag=1;
-                        }
+                        }*/
 
+                             //validation for email
+                             if(Email.value==""){
+                         document.getElementById("EmailPara").innerHTML="Email id required";
+                         return false;
+                        }/*else{
+                      document.getElementById("EmailPara").innerHTML=""; //if pass is correct it will not show any message in p tag
+                      flag=1;
+                      }*/
                            // validation for hobbies
-                        if(Hobbies.value.length<20){
+                        if((Hobbies.value).length<20){
                             document.getElementById("HobPara").innerHTML="Too less content";
-                            flag=0;
-                        }else{
+                            return false;
+                        }/*else{
                             document.getElementById("HobPara").innerHTML="";
                             flag=1;
-                        }
+                        }*/
 
-
-                        if(flag){
-                            return true;
-                        }else{
-                            return false;
-                        }
 
                     }
-                    const input = document.querySelector('input[name="name"]');
 
-                    input.addEventListener('invalid', function (event) {
-                    if (event.target.validity.valueMissing) {
-                    event.target.setCustomValidity('Please tell us how we should address you.');
-                    }
-                    })
-
-                    input.addEventListener('change', function (event) {
-                    event.target.setCustomValidity('');
-                    })
-                    
          </script>
 </body>
 </html>
