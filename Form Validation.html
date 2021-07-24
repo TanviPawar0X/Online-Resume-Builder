@@ -28,7 +28,7 @@
         #div1{
             position: absolute;
             background-color: white;
-            padding: 50px;
+            padding: 55px 40px 30px 40px;
             text-align: center;
         }
 
@@ -39,12 +39,21 @@
         h2{
             margin: 0px 0px 10px 0px;
         }
-        input{
+        input#uname{
             width: 200px;
             margin: 10px 0px;
             padding: 10px;
         }
-
+        input#mail{
+            width: 200px;
+            margin: 10px 0px;
+            padding: 10px;
+        } 
+        input#sub{
+            margin: 10px 0px;
+            padding: 10px;
+        }
+        
         input[type="submit"]{
               width: 222px;
               border: 0px;
@@ -69,8 +78,10 @@
      
     <input type="email" id="mail" placeholder="Email"><br>
     <!-- <p id="SecondPara" class="para"></p>  -->
-   
-     <input type="submit" class="sub">
+    <span>Fresher<input type="radio" id="fresh" name="temp" value="Fresher"></span>
+    <span>Experienced<input type="radio" id="exp" name="temp" value="Experienced"></span>
+    <br>
+     <input type="submit" id="sub" class="sub">
     </form>
       </div>
 
