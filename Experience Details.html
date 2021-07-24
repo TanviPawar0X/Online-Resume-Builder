@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+      <style>
+          body{
+              background-image:url("academic1.jpg");
+              background-attachment: fixed;
+              background-repeat: no-repeat;
+              background-size: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              
+          }
+          input[type=text]:valid{
+            color: #59be50;
+          }
+          input[type=text]:invalid {
+            color: red;
+          }
+         input{
+             width: 260px;
+             height: 30px;
+             margin-bottom:20px;
+
+         } 
+         button{
+              background-color: cornflowerblue;
+              border: 0px;
+              width: 88px;
+              height: 35px;
+              color: white;
+              margin-right: 10px
+         }
+         #btn{
+               display: flex;
+           }
+           #b1{
+               width: 50%;
+           }
+           #b2{
+               width: 50%;
+           }
+         .container{
+             background-color: white;
+             margin: 40px;
+             padding: 40px;
+         }
+         
+          textarea{
+              margin-bottom: 20px;
+          }
+        
+        .sub:hover {background-color: #59be50}
+
+        .sub:active {
+             background-color: #59be50;
+             box-shadow: 0px 1px 1px 1px #666;
+            }
+        p{
+            color: red;
+        }
+      </style>       
+    <div class="container">
+                    <form action="" onsubmit=" ">
+                        <h2 align="center">Experience Details</h2> <!--Company Name Designation Start date End date Details 2 Button-->
+            <input type="text" id="cname" name="companyName" placeholder="Company Name" required="required" ><br>
+            <p id="Company_Name_msg"></p> 
+
+            <input type="text" id="designation" placeholder="Designation" required="required"><br>
+            <p id="Designation_msg"></p>
+
+            <input type="date" id="startDate" placeholder="Start Date" required="required"><br>
+            <p id="Start_Date_msg"></p>
+
+            <input type="date" id="endDate" placeholder="End Date" required="required"></input><br>
+            <p id="End_Date_msg"></p>
+            
+            <textarea name="Details" id="details" cols="35" rows="7" placeholder="Details" required="required"></textarea><br>
+            <p id="Details_msg"></p>
+
+            <div id="btn">
+                <div id="b1" align="right"><button id="back" onclick="">Back</button></div>
+                <div id="b2" ><button type="submit" class="sub" onclick="">Next</button>
+            </div>
+            </div>
+            </form>
+</div>
+<script>
+
+                    
+         </script>
+</body>
+</html>

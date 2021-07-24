@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+      <style>
+          body{
+              background-image:url("academic1.jpg");
+              background-attachment: fixed;
+              background-repeat: no-repeat;
+              background-size: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              
+          }
+          input[type=text]:valid{
+            color: #59be50;
+          }
+          input[type=text]:invalid {
+            color: red;
+          }
+         input{
+             width: 260px;
+             height: 30px;
+             margin-bottom:20px;
+
+         } 
+         button{
+              background-color: cornflowerblue;
+              border: 0px;
+              width: 88px;
+              height: 35px;
+              color: white;
+         }
+         .container{
+             background-color: white;
+             margin: 40px;
+             padding: 40px;
+         }
+        
+          textarea{
+              margin-bottom: 20px;
+          }
+        
+        .sub:hover {background-color: #59be50}
+
+        .sub:active {
+             background-color: #59be50;
+             box-shadow: 0px 1px 1px 1px #666;
+            }
+        p{
+            color: red;
+        }
+      </style>       
+    <div class="container">
+                    <form action="" onsubmit=" ">
+                        <h2 align="center">Academic Details</h2>
+            <input type="text" id="courseDegree" name="course" placeholder="Course/Degree" required="required" ><br>
+            <p id="Course_Degree_msg"></p> 
+
+            <input type="text" id="schoolUniversity" placeholder="School/University" required="required"><br>
+            <p id="School_University_msg"></p>
+
+            <input type="text" id="gradeScore" placeholder="Grade/Score" required="required"><br>
+            <p id="Grade_Score_msg"></p>
+
+            <input id="year" placeholder="Year" required="required"></input><br>
+            <p id="Year_msg"></p>
+            
+            <button id="back" onclick="">Back</button>
+            <button  id="add" onclick="">Add</button>
+            <button type="submit" class="sub" onclick="">Next</button>
+            </form>
+</div>
+<script>
+
+                    
+         </script>
+</body>
+</html>
