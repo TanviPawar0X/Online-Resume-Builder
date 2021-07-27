@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Resume | Builder | </title>
+    <link rel="shortcut icon" type="image" href="X1T.png">
     <style>
         body{
+            background-color:white;
              background: url("office6.jpg");
              background-repeat: no-repeat;
              background-size: 100%;
@@ -28,7 +30,7 @@
         #div1{
             position: absolute;
             background-color: white;
-            padding: 50px;
+            padding: 55px 40px 30px 40px;
             text-align: center;
         }
 
@@ -39,12 +41,24 @@
         h2{
             margin: 0px 0px 10px 0px;
         }
-        input{
+        input#uname{
             width: 200px;
             margin: 10px 0px;
             padding: 10px;
         }
-
+        input#mail{
+            width: 200px;
+            margin: 10px 0px;
+            padding: 10px;
+        } 
+        input#sub{
+            margin: 10px 0px;
+            padding: 10px;
+        }
+        span{
+            color:red;
+        }
+        
         input[type="submit"]{
               width: 222px;
               border: 0px;
@@ -63,46 +77,41 @@
       <div id="div1">
         <img id="img1" src="user7.png">
           <h2>Registration</h2>
-          <form action="" onsubmit=" return validateForm()">
+		<form action="" onsubmit=" return validateForm()">
+		<span id="FirstPara"></span><br>  
     <input type="text" id="uname" placeholder="Username"><br>
-       <!-- <p id="FirstPara" class="para"></p>  -->
-     
+        <span  id="SecondPara" ></span><br>
     <input type="email" id="mail" placeholder="Email"><br>
-    <!-- <p id="SecondPara" class="para"></p>  -->
-   
-     <input type="submit" class="sub">
+
+    <span>Fresher<input type="radio" id="fresh" name="temp" value="Fresher"></span>
+    <span>Experienced<input type="radio" id="exp" name="temp" value="Experienced"></span>
+    <br>
+	
+     <input type="submit" id="sub" class="sub">
     </form>
       </div>
 
       <script>
+
           let username = document.getElementById("uname");
           let Email = document.getElementById("mail");
-          let flag= 1; // it will decide whether to submit form or not
+        //   let flag= 1; // it will decide whether to submit form or not
 
           function validateForm(){
-             if(username.value == ""){
-                 document.getElementById("FirstPara").innerHTML="Empty UserName";
-                 flag=0;
-             }else if(username.value.length < 3){
-                 document.getElementById("FirstPara").innerHTML="UserName should contain min 4 chars";
-                 flag=0;
-             }else{
-                document.getElementById("FirstPara").innerHTML="";   // if pass is correct it will not show any message in p tag
-                flag=1;
-             }
+             if(username.value == "" || username.value.length < 3 ){
+                 document.getElementById("FirstPara").innerHTML="Empty or short UserName(min 4 letters)";
+                 return false;
+             }/*else{
+                document.getElementById("FirstPara").innerHTML="";   // if pass is correct it will not show any message in p tag  
+             }  */
 
             if(Email.value==""){
                 document.getElementById("SecondPara").innerHTML="Email id required";
-                flag=0;
-            }else{
-                document.getElementById("SecondPara").innerHTML=""; //if pass is correct it will not show any message in p tag
-                flag=1;
-            }
-                 if(flag){
-                     return true;
-                 }else{
-                     return false;
-                 }
+                return false;
+            } /*else {
+               document.getElementById("SecondPara").innerHTML=""; //if pass is correct it will not show any message in p tag
+                 
+            } */
           }
       </script>
 </body>

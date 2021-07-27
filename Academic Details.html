@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Resume | Builder | Academic Details </title>
+    <link rel="shortcut icon" type="image" href="X1T.png">
 </head>
 <body> 
       <style>
           body{
+            background-color: rgba(87, 24, 6, 0.918);
               background-image:url("academic1.jpg");
               background-attachment: fixed;
               background-repeat: no-repeat;
@@ -25,24 +27,61 @@
             color: red;
           }
          input{
-             width: 260px;
+             width: 100%;
              height: 30px;
              margin-bottom:20px;
 
          } 
-         button{
-              background-color: cornflowerblue;
+         #back{
+              background-color: #01dfd7;
               border: 0px;
-              width: 88px;
+              width: 100%;
               height: 35px;
               color: white;
+              margin-bottom: 10%;
+         }
+         #add{
+            width:20%;
+            background-color: #01dfd7;
+            border: 0px;
+            height: 35px;
+            color: white;
+            margin-bottom: 10%;
+         }
+         #next{
+            background-color: #01dfd7;
+            border: 0px;
+            width: 100%;
+            height: 35px;
+            color: white;
+            margin-bottom: 10%;
          }
          .container{
+             display: flex;
              background-color: white;
-             margin: 40px;
+             width:50%;
+             margin: 150px;
              padding: 40px;
          }
-        
+         .container-1{
+             width:50%;
+         }
+         .container-1 img{
+             width:90%;
+         }
+         .container-1 div{
+            width: 90%;
+            padding-top: 10px;
+            margin-top: 10px;
+            height: 86px;
+         background-color: rgb(243 32 32 / 55%);
+         }
+         .container-2{
+            width:50%;
+         }
+         h1{
+            margin: 0%;
+         }
           textarea{
               margin-bottom: 20px;
           }
@@ -53,32 +92,84 @@
              background-color: #59be50;
              box-shadow: 0px 1px 1px 1px #666;
             }
-        p{
+        span{
             color: red;
         }
       </style>       
-    <div class="container">
-                    <form action="" onsubmit=" ">
+    <div class="container" id="cont">
+    <div class="container-1">
+        <img src="X1.png">
+            <img src="f4.jpg">
+            <div></div>
+            <div></div>
+            <div></div>
+    </div>
+    <div class="container-2">
+    
+                    <form action="">
                         <h2 align="center">Academic Details</h2>
-            <input type="text" id="courseDegree" name="course" placeholder="Course/Degree" required="required" ><br>
-            <p id="Course_Degree_msg"></p> 
 
-            <input type="text" id="schoolUniversity" placeholder="School/University" required="required"><br>
-            <p id="School_University_msg"></p>
+            <span id="Course_Degree_msg" ></span><br>
+            <input type="text" id="courseDegree" name="course" placeholder="Course/Degree" ><br>
 
-            <input type="text" id="gradeScore" placeholder="Grade/Score" required="required"><br>
-            <p id="Grade_Score_msg"></p>
+            <span id="School_University_msg" ></span><br>
+            <input type="text" id="schoolUniversity" placeholder="School/University" ><br>
 
-            <input id="year" placeholder="Year" required="required"></input><br>
-            <p id="Year_msg"></p>
+            <span id="Grade_Score_msg"></span><br>
+            <input type="text" id="gradeScore" placeholder="Grade/Score" ><br>
+
+            <span id="Year_msg"></span><br>
+            <input type="month" id="year" placeholder="Year"></input><br>
             
-            <button id="back" onclick="">Back</button>
-            <button  id="add" onclick="">Add</button>
-            <button type="submit" class="sub" onclick="">Next</button>
+            <div align="center"><button  id="add" onclick=""><h1>+</h1></button></div>
+
+            <button id="back" onclick="alert(document.getElementById('year').value)">Back</button><br>
+            
+            <button type="submit" id="next" class="sub" onclick="return Academic_validation()">Next</button>
             </form>
+        </div>
 </div>
 <script>
+        function scrollToTop() {
+            $('html, body').animate({scrollTop : 0},500);
+       }
+        function Academic_validation(){
+        let Degree = document.getElementById("courseDegree");
+        let School = document.getElementById("schoolUniversity");
+        let grade = document.getElementById("gradeScore");
+        let year = document.getElementById("year");
 
+        clearSpan();
+
+
+        if((Degree.value)=="" || (Degree.value).length <3){
+            document.getElementById("Course_Degree_msg").innerHTML="Field is Empty or too short";
+            return false; 
+        }
+
+        if((School.value) == "" || (Degree.value).length <3){
+            document.getElementById("School_University_msg").innerHTML="Field is Empty or too short";
+            return false; 
+        }
+
+        if((grade.value) == ""){
+            document.getElementById("Grade_Score_msg").innerHTML="Field is Empty";
+            return false; 
+        }
+
+        if(year.value == ""){
+            document.getElementById("Year_msg").innerHTML="Field is Empty";
+            return false;
+        }
+                    
+        }
+
+        function clearSpan(){
+            document.getElementById("Course_Degree_msg").innerHTML="";
+            document.getElementById("School_University_msg").innerHTML="";
+            document.getElementById("Year_msg").innerHTML="";
+            document.getElementById("Grade_Score_msg").innerHTML="";
+        }
                     
          </script>
 </body>

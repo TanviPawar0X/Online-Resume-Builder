@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Resume | Builder | Experience Details </title>
+    <link rel="shortcut icon" type="image" href="X1T.png">
 </head>
 <body> 
       <style>
           body{
+            background-color: rgba(87, 24, 6, 0.918);
               background-image:url("academic1.jpg");
               background-attachment: fixed;
               background-repeat: no-repeat;
@@ -25,34 +27,45 @@
             color: red;
           }
          input{
-             width: 260px;
+             width: 100%;
              height: 30px;
              margin-bottom:20px;
 
          } 
          button{
-              background-color: cornflowerblue;
+              background-color: #01dfd7;
               border: 0px;
-              width: 88px;
-              height: 35px;
-              color: white;
-              margin-right: 10px
+             width: 100%;
+             height: 35px;
+             color: white;
+             margin-bottom: 10%;
          }
-         #btn{
-               display: flex;
-           }
-           #b1{
-               width: 50%;
-           }
-           #b2{
-               width: 50%;
-           }
          .container{
-             background-color: white;
-             margin: 40px;
-             padding: 40px;
+            display: flex;
+            background-color: white;
+            width:50%;
+            margin: 150px;
+            padding: 40px;
          }
-         
+         .container-1{
+             width:50%;
+         }
+         .container-1 img{
+             width:90%;
+         }
+         .container-1 div{
+            width: 90%;
+            padding-top: 10px;
+            margin-top: 10px;
+            height: 86px;
+         background-color: rgb(243 32 32 / 55%);
+         }
+         .container-2{
+            width:50%;
+         }
+         h1{
+            margin: 0%;
+         }
           textarea{
               margin-bottom: 20px;
           }
@@ -63,37 +76,89 @@
              background-color: #59be50;
              box-shadow: 0px 1px 1px 1px #666;
             }
-        p{
+        span{
             color: red;
         }
       </style>       
     <div class="container">
-                    <form action="" onsubmit=" ">
-                        <h2 align="center">Experience Details</h2> <!--Company Name Designation Start date End date Details 2 Button-->
-            <input type="text" id="cname" name="companyName" placeholder="Company Name" required="required" ><br>
-            <p id="Company_Name_msg"></p> 
-
-            <input type="text" id="designation" placeholder="Designation" required="required"><br>
-            <p id="Designation_msg"></p>
-
-            <input type="date" id="startDate" placeholder="Start Date" required="required"><br>
-            <p id="Start_Date_msg"></p>
-
-            <input type="date" id="endDate" placeholder="End Date" required="required"></input><br>
-            <p id="End_Date_msg"></p>
+        <div class="container-1">
+            <img src="X1.png">
+                <img src="f4.jpg">
+                <div></div>
+                <div></div>
+                <div></div>
+        </div>
+        <div class="container-2">
+            <form action="">
+            <h2 align="center">Experience Details</h2> <!--Company Name Designation Start date End date Details 2 Button-->
+            <span id="Company_Name_msg"></span><br>
+            <input type="text" id="cname" name="companyName" placeholder="Company Name"  ><br>
             
-            <textarea name="Details" id="details" cols="35" rows="7" placeholder="Details" required="required"></textarea><br>
-            <p id="Details_msg"></p>
+            <span id="Designation_msg"></span><br>
+            <input type="text" id="designation" placeholder="Designation" ><br>
+            
+            <span id="Start_Date_msg"></span><br>
+            <input type="month" id="startDate" placeholder="Start Date"><br>
 
-            <div id="btn">
-                <div id="b1" align="right"><button id="back" onclick="">Back</button></div>
-                <div id="b2" ><button type="submit" class="sub" onclick="">Next</button>
-            </div>
-            </div>
+            <span id="End_Date_msg"></span><br>
+            <input type="month" id="endDate" placeholder="End Date" ></input><br>
+            
+            <span id="Details_msg"></span><br>
+            <textarea name="Details" id="details" cols="35" rows="7" placeholder="Details" ></textarea><br>
+            
+            <button id="back" >Back</button>
+            <button type="submit" class="sub" onclick="return Expirence_Validation()">Next</button>
+            
             </form>
+        </div>
 </div>
-<script>
+<script> 
+        function Expirence_Validation(){
+        let Company = document.getElementById("cname");
+        let Designation = document.getElementById("designation");
+        let StartDate = document.getElementById("startDate");
+        let EndDate = document.getElementById("endDate");
+        let Details = document.getElementById("details");
+        
+        clearSpan(); 
 
+        //compant name
+        if((Company.value)==""){
+           document.getElementById("Company_Name_msg").innerHTML="Field is Empty";
+            return false;
+        }
+ 
+        //Designation
+        if((Designation.value)==""){
+            document.getElementById("Designation_msg").innerHTML="Field is Empty";
+            return false;
+        }
+
+        //Start Date
+        if(StartDate.value == ""){
+            document.getElementById("Start_Date_msg").innerHTML="Field is Empty";
+            return false;
+        }
+        //End Date endDate
+        if(EndDate.value == ""){
+            document.getElementById("End_Date_msg").innerHTML="Field is Empty";
+            return false;
+        }
+
+        //Details
+        if((Details.value)=="" || (Details.value).length<4){
+            document.getElementById("Details_msg").innerHTML="Too short or Field is Empty";
+            return false;
+        }
+        //start and end year validation is remaining
+        }
+        function clearSpan(){
+            document.getElementById("Company_Name_msg").innerHTML="";
+            document.getElementById("Designation_msg").innerHTML="";
+            document.getElementById("Details_msg").innerHTML="";
+            document.getElementById("Start_Date_msg").innerHTML="";
+            document.getElementById("End_Date_msg").innerHTML="";
+        }
                     
          </script>
 </body>
